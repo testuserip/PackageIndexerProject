@@ -1,6 +1,6 @@
 README.txt
 
-Please see the 'Design Rationale' for more details.
+Please see the 'Design Rationale' for more design details.
 
 This project is a package indexing server. It waits for client's to send it indexing requests. Here is a description of how it works :
 
@@ -30,9 +30,9 @@ The response code returned should is as follows:
 * For `QUERY` commands, the server returns `OK\n` if the package is indexed. It returns `FAIL\n` if the package isn't indexed.
 * If the server doesn't recognize the command or if there's any problem with the message sent by the client it should return `ERROR\n`.
 
+***************************************************
 
 Classes :
-
 1. Server - This class handles the requests from clients who call this server with commands.
 
 2. ClientHandler - This class extends the Runnable interface. It parses and verifies the requests from the client 
@@ -47,3 +47,31 @@ Database implementations of the package indexer as well.
 5. PackageIndexer - This is an adapter layer class which instantiates the actual implementation of the DataLayerInterface.
 
 6. ClientResponseCode - This is a class which shares the common return codes for the client.
+
+****************************************************
+
+How to run :
+Open the project in Eclipse and run from program.
+Else you can also run the attached jar file as follows :
+java -jar PackageIndexer.jar
+
+****************************************************
+
+Docker :
+
+To run docker please run 'docker build -t package_indexer_image .'
+This will start a docker image with the server.
+
+****************************************************
+
+Testing :
+
+Please see the result for concurrency of 100 clients in the file : TestOutputForConcurrency100.txt
+
+*****************************************************
+
+Git Repo :
+
+git clone https://github.com/testuserip/PackageIndexerProject.git
+
+Link to repo : https://github.com/testuserip/PackageIndexerProject
